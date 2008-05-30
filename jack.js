@@ -1,3 +1,9 @@
+/*
+  Javascript + Rack = Jack
+  http://github.com/JackDanger/jack
+*/
+
+
 var Jack = {
   VERSION : '0.0.0',
 
