@@ -31,4 +31,4 @@ And so's this:
 ## How do I try it painlessly?
 
     git clone git://github.com/JackDanger/jack.git
-    ruby jack/bin/jackup.rb test/hello_world.js
+    ruby jack/bin/jackup test/hello_world.js
