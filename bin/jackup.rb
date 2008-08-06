@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'optparse'
-require 'jack'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'jack')
 
 usage = "Usage: jackup my_javascript_app.js [rack options] [javascript options]"
 
