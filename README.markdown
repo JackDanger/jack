@@ -1,7 +1,31 @@
 # Jack
 
-A Rack adapter implemented in Javascript.
+Rack + Javascript = Jack
+
+Write your web apps in the same powerful language on both ends.
 
 ## Does it work?
 
-No, not yet.
+Yes, thanks entirely to the hard work of Christian Neukirchen (http://chneukirchen.org/) for Rack and John Barnette, Aaron Patterson, Yehuda Katz, and Matthew Draper for their work on Johnson (http://github.com/jbarnette/johnson).
+
+## Why would I need this?
+
+Because this is kickass, that's why:
+
+    Jack.run(function(env){
+      return [200, {'Content-Type': 'text/html'}, "you're looking at: "+env['PATH_INFO']]
+    })
+
+And so's this:
+
+    MyFramework = {
+      call: function(env){
+        -- complex stuff goes here
+      }
+    }
+    Jack.run(MyFramework)
+
+## How do I try it painlessly?
+
+    git clone git://github.com/JackDanger/jack.git
+    ruby jack/bin/jackup.rb test/hello_world.js
