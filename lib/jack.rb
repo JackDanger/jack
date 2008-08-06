@@ -1,44 +1,40 @@
 require 'rubygems'
+require 'johnson'
 require 'rack'
+
+#
+# Javascript + Rack = Jack
+# http://github.com/JackDanger/jack
+#
+
+class Johnson::Runtime
+  def readfile(file)
+    IO.read(file)
+  end
+end
+
 
 class Jack
   class << self
+    BASE    = File.join(File.dirname(__FILE__), '..')
+    JACK_JS = File.read(File.join(BASE, 'lib', 'jack.js'))
 
-    def options
-      @options ||= {}
-    end
-    
-    def require(file)
-      @required_files ||= []
-      @required_files << file
-    end
-    
-    JACK_JS = File.join(File.dirname(__FILE__), '/', 'jack.js')
-  
-    def up(js_app)
+    def up(js_app, options = {})
       
-      require_files = @required_files.map {|file| " -f #{file} " }.join if @required_files
-
-      command = "#{SPIDERMONKEY_BIN} -f #{JACK_JS} #{require_files} #{js_app}"
-
       options[:Port] ||= '1337'
       options[:Host] ||= '127.0.0.1'
+      
+      app = proc do |env|
 
-      app = proc {
-        puts "about to run #{command}"
-        system(command)
-      }
+        js_app_code = File.read(File.join(BASE, js_app))
+
+        status, headers, body = Johnson.evaluate(JACK_JS + js_app_code, :env => env).to_a
+        [status, Hash[*headers.to_a.flatten], body.split('\n')]
+      end
       
       puts "Running #{js_app} on port #{options[:Port]}"
 
       Rack::Handler::Mongrel.run(app, options)
     end
   end
-  
-  class Handler
-  end
 end
-
-  #   server = HttpServer.new("0.0.0.0", 3000)
-  #   server.register("/stuff", MyNiftyHandler.new)
-  #   server.run.join
