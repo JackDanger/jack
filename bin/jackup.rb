@@ -1,4 +1,5 @@
 require 'rubygems'
+gem 'clip'
 require 'clip'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'jack')
 
