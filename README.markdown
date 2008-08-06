@@ -20,7 +20,10 @@ And so's this:
 
     MyFramework = {
       call: function(env){
-        -- complex stuff goes here
+
+        (complex stuff goes here)
+        
+        return [status, headers, body]
       }
     }
     Jack.run(MyFramework)
