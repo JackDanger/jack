@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
+gem 'johnson'
 require 'johnson'
+gem 'rack'
 require 'rack'
 
 #
