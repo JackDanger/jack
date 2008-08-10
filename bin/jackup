@@ -10,9 +10,9 @@ require 'rack'
 
 usage = "Usage: jackup my_javascript_app.js [rack options]"
 
-options = Clip do |p|
-  p.optional 'o', 'Host', :desc => 'listen on HOST (default: 127.0.0.1)', :default => '127.0.0.1'
-  p.optional 'p', 'Port', :desc => 'use PORT (default: 9292)', :default => 9292 do |v|
+clip = Clip do |p|
+  p.optional 'o', 'host', :desc => 'listen on HOST (default: 127.0.0.1)', :default => '127.0.0.1'
+  p.optional 'p', 'port', :desc => 'use PORT (default: 9292)', :default => 1337 do |v|
     v.to_i # always deal with integers
   end
 end
@@ -20,10 +20,11 @@ end
 BASE    = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 $LOAD_PATH << File.join(BASE, 'lib')
 
-if options.valid? && options.remainder.size > 0
+if clip.valid? && clip.remainder.size > 0
   rt = Johnson.load(File.join(BASE, 'lib', 'jack.js'))
   rt['Jack'].BASE = BASE
-  rt['Jack'].up(options.remainder, { :Port => 1337, :Host => '127.0.0.1' })
+  rt['Jack'].up(clip.remainder, {:Port => clip.port, :Host => clip.host})
 else
+  $stderr.puts usage
   $stderr.puts options.to_s
 end
