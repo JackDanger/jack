@@ -26,5 +26,5 @@ if clip.valid? && clip.remainder.size > 0
   rt['Jack'].up(clip.remainder, {:Port => clip.port, :Host => clip.host})
 else
   $stderr.puts usage
-  $stderr.puts options.to_s
+  $stderr.puts clip.to_s
 end
