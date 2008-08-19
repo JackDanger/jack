@@ -17,7 +17,7 @@ options = Clip do |p|
   end
 end
 
-BASE    = File.join(File.dirname(__FILE__), '..')
+BASE    = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 $LOAD_PATH << File.join(BASE, 'lib')
 
 if options.valid? && options.remainder.size > 0

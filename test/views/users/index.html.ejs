@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>Hello <%= this.name %></h1>
+    <% var months = [ 'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June', 
+                      'July', 
+                      'August', 
+                      'September', 
+                      'October', 
+                      'November', 
+                      'December' ]; %>
+    <ul>
+      <% for(var i = 0; i < months.length; i++) { %>
+        <li><%= months[i] %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
