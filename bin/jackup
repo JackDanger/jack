@@ -3,7 +3,10 @@
 require 'rubygems'
 gem 'clip'
 require 'clip'
-require File.join(File.dirname(__FILE__), '..', 'lib', 'jack')
+gem 'johnson'
+require 'johnson'
+gem 'rack'
+require 'rack'
 
 usage = "Usage: jackup my_javascript_app.js [rack options]"
 
@@ -15,7 +18,12 @@ options = Clip do |p|
 end
 
 if options.valid? && options.remainder.size > 0
-  Jack.up options.remainder
+  BASE    = File.join(File.dirname(__FILE__), '..')
+  JACK_JS = File.join(BASE, 'lib', 'jack.js')
+  rt = Johnson::Runtime.new
+  rt.load(JACK_JS)
+  rt['Jack'].BASE = BASE
+  rt['Jack'].up(options.remainder, { :Port => 1337, :Host => '127.0.0.1' })
 else
   $stderr.puts options.to_s
 end
