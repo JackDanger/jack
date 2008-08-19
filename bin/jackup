@@ -17,11 +17,11 @@ options = Clip do |p|
   end
 end
 
+BASE    = File.join(File.dirname(__FILE__), '..')
+$LOAD_PATH << File.join(BASE, 'lib')
+
 if options.valid? && options.remainder.size > 0
-  BASE    = File.join(File.dirname(__FILE__), '..')
-  JACK_JS = File.join(BASE, 'lib', 'jack.js')
-  rt = Johnson::Runtime.new
-  rt.load(JACK_JS)
+  rt = Johnson.load(File.join(BASE, 'lib', 'jack.js'))
   rt['Jack'].BASE = BASE
   rt['Jack'].up(options.remainder, { :Port => 1337, :Host => '127.0.0.1' })
 else
