@@ -6,7 +6,7 @@ Jack.Controller = function() {
     return Johnson.templatize(Ruby.File.read(file)).call(this);
   };
 
-  this.__baseDir__ = Ruby.File.join(Jack.BASE, 'test', 'views');
+  this.__baseDir__ = Ruby.File.join(Jack.BASE, 'test_apps', 'framework', 'views');
 };
 
 Jack.camelize = function(string) {
@@ -32,7 +32,7 @@ Jack.run(function(env){
   var parts = env['PATH_INFO'].split("/");
 
   // Load our controller
-  var controllerFile = Ruby.File.join(Jack.BASE, 'test', 'controllers', parts[1] + "_controller.js");
+  var controllerFile = Ruby.File.join(Jack.BASE, 'test_apps', 'framework', 'controllers', parts[1] + "_controller.js");
   eval(Ruby.File.read(controllerFile));
 
   // Instantiate the controller
