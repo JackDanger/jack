@@ -11,8 +11,8 @@ require 'rack'
 usage = "Usage: jackup my_javascript_app.js [rack options]"
 
 clip = Clip do |p|
-  p.optional 'o', 'host', :desc => 'listen on HOST (default: 127.0.0.1)', :default => '127.0.0.1'
-  p.optional 'p', 'port', :desc => 'use PORT (default: 9292)', :default => 1337 do |v|
+  p.optional 'o', 'host', :desc => 'listen on HOST', :default => '127.0.0.1'
+  p.optional 'p', 'port', :desc => 'use PORT', :default => 1337 do |v|
     v.to_i # always deal with integers
   end
 end
