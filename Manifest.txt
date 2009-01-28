@@ -1,0 +1,5 @@
+Manifest.txt
+README.markdown
+Rakefile
+bin/jackup
+lib/jack.js

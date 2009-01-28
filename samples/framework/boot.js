@@ -43,5 +43,5 @@ Jack.run(function(env){
 
   var html = controller[action](Jack.parameterize(env['QUERY_STRING']));
 
-  return [200, {'Content-Type': 'text/html'}, html]
-})
+  return [200, {'Content-Type': 'text/html'}, html];
+});
