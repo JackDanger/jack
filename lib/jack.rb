@@ -9,6 +9,8 @@ module Jack
   def self.run(app_file, options)
     @js = Johnson::Runtime.new
     @js.load(File.dirname(__FILE__) + "/jack.js")
+    Dir.glob(File.dirname(__FILE__) + "/jack/*.js").each { |f| @js.load(f) }
+
     app = @js.load(app_file)
 
     @log = Logger.new(options.log)
