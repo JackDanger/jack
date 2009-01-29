@@ -1,5 +1,14 @@
+.gitignore
 Manifest.txt
 README.markdown
 Rakefile
-bin/jackup
+bin/jack
 lib/jack.js
+lib/jack.rb
+samples/framework/boot.js
+samples/framework/controllers/users_controller.js
+samples/framework/views/users/index.html.ejs
+samples/hello.js
+samples/src/jquery-1.2.6.min.js
+test/app.js
+test/test_jack.rb
