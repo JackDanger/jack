@@ -15,6 +15,7 @@ module Jack
 
     @log = Logger.new(options.log)
     @log.info "Starting #{app_file} on http://#{options.host}:#{options.port}"
+    @js['Jack']['log'] = @log # Why can't we go the other way? (Jack.log = Ruby.Jack.log)
 
     Rack::Handler::Mongrel.run(app, {:Port => options.port, :Host => options.host})
   end
