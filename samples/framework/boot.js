@@ -1,3 +1,6 @@
+// This was written to work with an older version of Jack and is
+// probably subject to bitrot.
+
 Johnson.require('johnson/template');
 
 Jack.Controller = function() {
@@ -28,7 +31,7 @@ Jack.parameterize = function(string) {
   return params;
 };
 
-Jack.run(function(env){
+function(env){
   var parts = env['PATH_INFO'].split("/");
 
   // Load our controller
@@ -44,4 +47,4 @@ Jack.run(function(env){
   var html = controller[action](Jack.parameterize(env['QUERY_STRING']));
 
   return [200, {'Content-Type': 'text/html'}, html];
-});
+};
