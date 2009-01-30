@@ -1,14 +1,14 @@
 #!/usr/bin/env jack
 
 var hello = function () {
-  return "<h1>O hai.</h1>";
+  return "<h1>O hai</h1>";
 };
 
 var error = function () {
-  return boognish;
+  return "11".boom();
 }
 
-Jack.routes.push([/hello/, hello]);
-Jack.routes.push([/ohai/, hello]);
-Jack.routes.push([/error/, error]);
-Jack.up();
+Jack.Action(/o-hai/, hello );
+Jack.Action(/pow/, error );
+
+Jack.up()

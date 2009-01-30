@@ -13,7 +13,7 @@ class TestJack < Test::Unit::TestCase
     @app_thread = Thread.new do
       Jack.run(File.dirname(__FILE__) + '/app.js', TEST_OPTS)
     end
-    sleep 0.1
+    sleep 1.0
   end
 
   def teardown
@@ -21,8 +21,8 @@ class TestJack < Test::Unit::TestCase
   end
 
   def test_hello_world
-    assert_match /o hai/i, open('http://localhost:1338/hello').read
-    assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/error').read }
+    assert( "<h1>O hai</h1>" == open('http://localhost:1338/o-hai').read )
+    assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/pow').read }
     assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/404').read }
   end
 end
