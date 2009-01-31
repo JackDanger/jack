@@ -2,6 +2,7 @@ require 'logger'
 require 'rubygems'
 require 'johnson'
 require 'rack'
+gem 'builder'
 
 module Jack
   VERSION = '0.2.0'

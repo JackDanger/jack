@@ -21,8 +21,13 @@ class TestJack < Test::Unit::TestCase
   end
 
   def test_hello_world
-    assert( "<h1>O hai</h1>" == open('http://localhost:1338/o-hai').read )
+    assert_equal( "<h1>O hai</h1>" , open('http://localhost:1338/o-hai').read )
     assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/pow').read }
     assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/404').read }
   end
+  
+  def test_views
+    assert_equal( "<DIV class='message'>Hello from jquery</DIV>" , open('http://localhost:1338/jquery').read )
+  end
+  
 end
