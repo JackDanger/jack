@@ -1,11 +1,13 @@
+Jack.Template( "index" , "./samples/framework/templates/index.html.haml" );
+
+Jack.View( "indexView" , function( name ){
+    window.document = Jack.Template("index");
+    $("body").append( name );
+    return document.innerHTML;
+});
+
 Jack.Action(/^\/$/,function() {
-    window.document = new DOMDocument( baconl("%body\n  %h1 hello!\n  %div.message") );
-    window.$(".message").text("This message inserted dynamically");
-    window.$(".message").append( baconl("%p paragraph") );
-    
-    window.$(".message").load("http://www.google.com body");
-    
-    return window.document.innerHTML;
+    return Jack.View("indexView")("cohitre!!!!");
 });
 
 Jack.Action(/user\/\d+/,function() {
