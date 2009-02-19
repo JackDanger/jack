@@ -13,7 +13,7 @@ end
 if clip.valid? and clip.remainder.size == 1
   Jack.run(clip.remainder.first, clip)
 else
-  abort "Usage: jackup app.js\n#{clip.to_s}"
+  abort "Usage: jack app.js\n#{clip.to_s}"
 end
 
 
