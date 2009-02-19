@@ -6,8 +6,8 @@ Write your web apps in the same powerful language on both ends.
 
 ## Does it work?
 
-Yes, thanks entirely to the hard work of (Christian Neukirchen)[http://chneukirchen.org/] for Rack and John Barnette, Aaron
-Patterson, Yehuda Katz, and Matthew Draper for their work on (Johnson)[http://github.com/jbarnette/johnson].
+Yes, thanks entirely to the hard work of [Christian Neukirchen](http://chneukirchen.org/) for Rack and John Barnette, Aaron
+Patterson, Yehuda Katz, and Matthew Draper for their work on [Johnson](http://github.com/jbarnette/johnson).
 
 ## Why would I need this?
 
