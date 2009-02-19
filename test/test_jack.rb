@@ -1,5 +1,4 @@
 require 'rubygems'
-# require 'minitest'
 require 'test/unit'
 require File.dirname(__FILE__) + '/../lib/jack'
 require 'open-uri'
