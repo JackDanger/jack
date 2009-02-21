@@ -1,13 +1,13 @@
-.gitignore
 Manifest.txt
 README.markdown
 Rakefile
 bin/jack
 lib/jack.js
 lib/jack.rb
+lib/jack/baconl.js
+lib/jack/utils.js
 samples/framework/boot.js
-samples/framework/controllers/users_controller.js
-samples/framework/views/users/index.html.ejs
 samples/hello.js
 test/app.js
+test/test.log
 test/test_jack.rb
