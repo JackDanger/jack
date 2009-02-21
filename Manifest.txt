@@ -9,5 +9,4 @@ lib/jack/utils.js
 samples/framework/boot.js
 samples/hello.js
 test/app.js
-test/test.log
 test/test_jack.rb
