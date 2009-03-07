@@ -12,9 +12,13 @@ Jack.Action(/o-hai/, hello);
 Jack.Action(/pow/, error);
 
 Jack.Action(/jquery/,function() {
-    window.document = new DOMDocument( baconl("%div.message") );
-    window.$(".message").text("Hello from jquery");
-    return window.document.innerHTML;
+    try {
+      window.document = new DOMDocument( baconl("%div.message") );
+      window.$(".message").text("Hello from jquery");
+      return window.document.innerHTML;
+    }catch(e){
+      return 'framework is fine but jQuery builder is broke'
+    }
 });
 
 Jack.up()
