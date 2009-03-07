@@ -11,6 +11,14 @@ var error = function() {
 Jack.Action(/o-hai/, hello);
 Jack.Action(/pow/, error);
 
+Jack.Action(/source\/app\.js/, function(env){
+  return [
+    200,
+    {"Content-Type": "text/plain"},
+    Ruby.File.read(Ruby.File.dirname(__FILE__)+'/app.js')
+  ]
+})
+
 Jack.Action(/jquery/,function() {
     try {
       window.document = new DOMDocument( baconl("%div.message") );

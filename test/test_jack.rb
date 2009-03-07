@@ -24,6 +24,12 @@ class TestJack < Test::Unit::TestCase
     assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/pow').read }
     assert_raises(OpenURI::HTTPError) { open('http://localhost:1338/404').read }
   end
+
+  def test_custom_content_type
+    open('http://localhost:1338/source/app.js') do |response|
+      assert_equal 'text/plain', response.content_type
+    end
+  end
   
   def test_views
     assert_equal( "<DIV class='message'>Hello from jquery</DIV>" , open('http://localhost:1338/jquery').read )
