@@ -20,7 +20,7 @@ Because this is kickass, that's why:
 ## How do I try it painlessly?
 
     $ sudo gem install jbarnette-johnson --source=http://gems.github.com
-    $ git clone git://github.com/technomancy/jack.git
+    $ git clone git://github.com/JackDanger/jack.git # or one of the forks
     $ cd jack && rake install_gem
       [...]
     $ samples/hello.js &
