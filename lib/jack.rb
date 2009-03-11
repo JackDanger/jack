@@ -16,7 +16,7 @@ module Jack
     @log.info "Starting #{app_file} on http://#{options.host}:#{options.port}"
     @js['Jack']['root'] = File.dirname(app_file)
     @js['Jack']['log']  = @log # Why can't we go the other way? (Jack.log = Ruby.Jack.log)
-    @js['Jack']['mongrelOptions'] = {:Port => options.port, :Host => options.host}
+    @js['Jack']['options'] = {:Port => options.port, :Host => options.host}
 
     @js.load(app_file)
   end
