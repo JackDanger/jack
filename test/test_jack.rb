@@ -34,5 +34,14 @@ class TestJack < Test::Unit::TestCase
   def test_views
     assert_equal( "<DIV class='message'>Hello from jquery</DIV>" , open('http://localhost:1338/jquery').read )
   end
+
+  def test_requests_dont_each_add_to_the_stack
+    n = 0
+    2_000.times do |n|
+      open('http://localhost:1338/o-hai').read
+    end
+  rescue => e
+    assert false, "Blew up after #{n} requests"
+  end
   
 end
