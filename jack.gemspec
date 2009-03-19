@@ -1,3 +1,4 @@
+
 Gem::Specification.new do |s|
   s.name = %q{jack}
   s.version = "0.2.0"
