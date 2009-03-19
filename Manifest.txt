@@ -2,11 +2,15 @@ Manifest.txt
 README.markdown
 Rakefile
 bin/jack
+jack.gemspec
 lib/jack.js
 lib/jack.rb
+lib/jack/action.js
 lib/jack/baconl.js
 lib/jack/utils.js
+lib/jack/view.js
 samples/framework/boot.js
-samples/hello.js
+samples/framework/templates/index.html.haml
 test/app.js
+test/test.log
 test/test_jack.rb
