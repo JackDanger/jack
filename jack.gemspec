@@ -40,4 +40,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<hoe>, [">= 1.11.0"])
   end
 end
-
