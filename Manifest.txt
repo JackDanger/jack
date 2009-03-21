@@ -12,5 +12,4 @@ lib/jack/view.js
 samples/framework/boot.js
 samples/framework/templates/index.html.haml
 test/app.js
-test/test.log
 test/test_jack.rb
