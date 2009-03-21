@@ -5,7 +5,7 @@ require 'rack'
 gem 'builder'
 
 module Jack
-  VERSION = '0.2.0'
+  VERSION = '0.2.5'
 
   def self.run(app_file, options)
     @js = Johnson::Runtime.new
